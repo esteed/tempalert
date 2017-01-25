@@ -4,8 +4,7 @@ threshold=80
 alert_file=/tmp/temp_alert_status
 alert_status=`cat $alert_file`
 current_temp=`/usr/local/bin/get_temp.py | head -1 | awk -F. '{print $1}'`
-engineers="esteed@collier-it.com,fdaniels@collier-it.com,bprigge@collier-it.com,bbream@collier-it.com,mfowler@collier-it.com"
-#engineers="esteed@collier-it.com,esteed@comcast.net"
+engineers="joe@anonymous.com, sally@hairdesign.com, erbert@gerbert.com"
 subj_alert="HQ Server Room: Current temperature [$current_temp] is greater than threshold [$threshold].  Investigate immediately!"
 subj_norm="HQ Server Room: Current temperature [$current_temp] is now lower than threshold [$threshold].  All Clear."
 msg_file=/tmp/email_message.txt
@@ -24,7 +23,7 @@ function send_mail(){
         ## Create the email message that we're going to pass to ssmtp.  $1 is the Subject line.
         ##
         echo "To: ${engineers}" >> $msg_file
-        echo "From: esteed@comcast.net" >> $msg_file
+        echo "From: sender@domain.com" >> $msg_file
         echo "Subject: $1" >> $msg_file
         echo " " >> $msg_file
 
