@@ -13,6 +13,18 @@
 # whatever script or program that is responsible for sampling the temperature in your situation.  Just make sure the
 # output consists of an integer.  My check_temp.sh script strips off anything after the decimal point.
 #
+# I forgot to include this in the original setup instructions- shame on me!
+#
+OS requirements:
+add to end of /etc/modprobe: 
+w1-gpio
+w1-therm
+
+add to /boot/config.txt:
+# Add 1wire support for DS18B20 temperature sensor
+dtoverlay=w1-gpio
+
+reboot
 #
 # Enjoy!
 #
